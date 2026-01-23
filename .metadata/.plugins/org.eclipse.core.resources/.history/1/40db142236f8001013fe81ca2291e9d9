@@ -1,6 +1,6 @@
 package com.flipfit.business.impl;
 
-import com.flipfit.business.BookingService;
+import com.flipfit.*;
 
 public class BookingServiceImpl implements BookingService {
 
