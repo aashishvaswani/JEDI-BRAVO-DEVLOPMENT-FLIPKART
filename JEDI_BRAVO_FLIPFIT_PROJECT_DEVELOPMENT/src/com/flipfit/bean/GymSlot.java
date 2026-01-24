@@ -8,35 +8,64 @@ import java.time.LocalTime;
  */
 public class GymSlot {
 	private String slotId;
-	private String StartTime;
-	private String EndTime;
+	private LocalTime startTime;
+	private LocalTime endTime;
 	private int totalSeats;
+	private int availableSeats;
+
 	public String getSlotId() {
 		return slotId;
 	}
+
 	public void setSlotId(String slotId) {
 		this.slotId = slotId;
 	}
-	public String getStartTime() {
-		return StartTime;
+
+	public LocalTime getStartTime() {
+		return startTime;
 	}
-	public void setStartTime(String startTime) {
-		StartTime = startTime;
+
+	public void setStartTime(LocalTime startTime) {
+		this.startTime = startTime;
 	}
-	public String getEndTime() {
-		return EndTime;
+
+	public LocalTime getEndTime() {
+		return endTime;
 	}
-	public void setEndTime(String endTime) {
-		EndTime = endTime;
+
+	public void setEndTime(LocalTime endTime) {
+		this.endTime = endTime;
 	}
+
 	public int getTotalSeats() {
 		return totalSeats;
 	}
+
 	public void setTotalSeats(int totalSeats) {
 		this.totalSeats = totalSeats;
 	}
-	
 
-    public int getAvailableSeats() { return availableSeats; }
-    public void setAvailableSeats(int availableSeats) { this.availableSeats = availableSeats; }
+	public int getAvailableSeats() {
+		return availableSeats;
+	}
+
+	public void setAvailableSeats(int availableSeats) {
+		this.availableSeats = availableSeats;
+	}
+
+	public boolean isAvailable() {
+		return availableSeats > 0;
+	}
+
+	public void decreaseAvailability() {
+		if (availableSeats > 0) {
+			availableSeats--;
+		}
+	}
+
+	public void increaseAvailability() {
+		if (availableSeats < totalSeats) {
+			availableSeats++;
+		}
+	}
 }

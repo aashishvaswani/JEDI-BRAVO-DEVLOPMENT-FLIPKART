@@ -23,6 +23,11 @@ public class FlipFitBookingService implements BookingService {
     private BookingDAO bookingDAO;
     private GymCentreDAO gymDAO;
 
+    public FlipFitBookingService() {
+        this.bookingDAO = new BookingDAO();
+        this.gymDAO = new GymCentreDAO();
+    }
+
     /**
      * Business Logic: Finds available slot by time, generates ID, and saves booking.
      */
@@ -87,6 +92,6 @@ public class FlipFitBookingService implements BookingService {
     }
 
     private void checkOverlapAndRemove(String userId, Date date, LocalTime time) {
-        // Implementation of logic to ensure user doesn't have two sessions at once [cite: 69]
+        // Simple overlap handling lives in BookingServiceImpl; left as a placeholder here.
     }
 }
